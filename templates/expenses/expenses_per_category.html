@@ -1,0 +1,15 @@
+{% extends 'shared/base.html' %}
+{% block title %}
+    Expenses for {{ category.name }}- Expense Tracker
+{% endblock %}
+{% block content %}
+    <h5>All expenses for {{ category.name }}</h5>
+    <div class="d-flex flex-wrap justify-content-start gap-4">
+        {% for expense in all_expenses_per_category %}
+            {% include 'expenses/expense_card.html' %}
+            
+        {% empty %}
+            <p>No expenses logged yet for {{ category.name }}</p>
+        {% endfor %}
+    </div>
+{% endblock %}

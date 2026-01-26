@@ -1,0 +1,12 @@
+   <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'common:home' %}">ExpenseTracker</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'categories:list' %}">Categories</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'expenses:list' %}">Expenses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Projects</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>

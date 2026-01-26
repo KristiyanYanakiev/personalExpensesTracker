@@ -23,7 +23,7 @@ import common
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(
-        'common.urls'
-    ))
+    path('', include('common.urls' )),
+    path('categories/', include('categories.urls')),
+    path('expenses/', include('expenses.urls'))
 ]

@@ -1,0 +1,14 @@
+{% extends 'shared/base.html' %}
+{% block title %}
+    Categories - Expense Tracker
+{% endblock %}
+{% block content %}
+    <div class="d-flex flex-wrap justify-content-start gap-4">
+        {% for category in all_categories %}
+            {% include 'categories/category_card.html' %}
+            
+        {% empty %}
+            <p>No categories created yet</p>
+        {% endfor %}
+    </div>
+{% endblock %}

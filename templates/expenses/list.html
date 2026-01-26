@@ -1,0 +1,14 @@
+{% extends 'shared/base.html' %}
+{% block title %}
+    Expenses - Expense Tracker
+{% endblock %}
+{% block content %}
+    <div class="d-flex flex-wrap justify-content-start gap-4">
+        {% for expense in all_expenses %}
+            {% include 'expenses/expense_card.html' %}
+            
+        {% empty %}
+            <p>No expenses logged yet</p>
+        {% endfor %}
+    </div>
+{% endblock %}

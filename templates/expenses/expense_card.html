@@ -1,0 +1,13 @@
+
+  <div class="d-flex flex-wrap justify-content-start gap-4">
+    <div class="category-card text-center p-3 border rounded">
+      <h5>{{ expense.title }}</h5>
+      <ul>
+          <li>Amount: {{ expense.amount }}</li>
+          <li>Date: {{ expense.date }}</li>
+          <li>Category: {{ expense.category }}</li>
+{#          <li>Notes: {{ expense.notes | default: 'No notes' }}</li>#}
+      </ul>
+    </div>
+  </div>
+

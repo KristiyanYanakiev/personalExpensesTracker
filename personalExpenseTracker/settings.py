@@ -31,6 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 PROJECT_APPS = [
+    'common',
+    'expenses',
+    'categories',
+    'projects'
 
 ]
 
@@ -79,8 +83,8 @@ WSGI_APPLICATION = 'personalExpenseTracker.wsgi.application'
 
 DATABASES = {
     "default": {
-        "ENGINE": "expense_tracker",
-        "NAME": "mydatabase",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "expense_tracker",
         "USER": "postgres",
         "PASSWORD": "admin",
         "HOST": "127.0.0.1",

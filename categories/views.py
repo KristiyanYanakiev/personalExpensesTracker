@@ -1,6 +1,6 @@
 from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render, redirect
-from categories.forms import SearchForm, CreateCategoryForm
+from django.shortcuts import render, redirect, get_object_or_404
+from categories.forms import SearchForm, CreateCategoryForm, EditCategoryForm, DeleteCategoryForm
 from categories.models import Category
 
 
@@ -24,11 +24,13 @@ def create_category(request):
 
     if request.method == "POST":
         if form.is_valid():
-            Category.objects.create(
-                name=form.cleaned_data['name'],
-                monthly_budget=form.cleaned_data["monthly_budget"],
-                description=form.cleaned_data["description"]
-            )
+            # Category.objects.create(
+            #     name=form.cleaned_data['name'],
+            #     monthly_budget=form.cleaned_data["monthly_budget"],
+            #     description=form.cleaned_data["description"]
+            # )
+
+            form.save()
             return redirect('categories:list')
 
     context = {
@@ -38,7 +40,39 @@ def create_category(request):
     return render(request, 'categories/create_category.html', context)
 
 
+def edit_category(request, category_id):
+    category = get_object_or_404(Category, id=category_id )
+    form = EditCategoryForm(
+        data=request.POST or None,
+        instance=category
 
+    )
 
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('categories:list')
 
+    context = {
+        'form': form,
+        'category': category
+    }
 
+    return render(request, 'categories/edit_category.html', context)
+
+def delete_category(request, category_id):
+    category = get_object_or_404(Category, id=category_id)
+    form = DeleteCategoryForm(
+        instance=category
+    )
+
+    if request.method == 'POST':
+        category.delete()
+        return redirect('categories:list')
+
+    context = {
+        'form': form,
+        'category': category
+    }
+
+    return render(request, 'categories/delete_category.html', context)

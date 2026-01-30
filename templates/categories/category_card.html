@@ -5,8 +5,12 @@
         <ul>
           <li>Monthly budget: {{ category.monthly_budget }}</li>
           <li>Description: {{ category.description }}</li>
-            <li><a href="{% url 'categories:expenses_per_category' category_id=3 %}" class="btn btn-outline-primary mt-3">View related expenses</a></li>
+            <li><a href="{% url 'categories:expenses_per_category' category_id=category.id %}" class="btn btn-outline-primary mt-3">View related expenses</a></li>
       </ul>
+      <div>
+          <a href="{% url 'categories:edit_category' category_id=category.id %}">Edit Category</a>
+          <a href="{% url 'categories:delete_category' category_id=category.id %}">Delete Category</a>
+      </div>
     </div>
   </div>
 

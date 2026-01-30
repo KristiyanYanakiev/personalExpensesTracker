@@ -20,8 +20,10 @@ class Expense(models.Model):
     )
     category = models.ForeignKey(
         to='categories.Category',
-        on_delete=models.PROTECT,
-        related_name='expenses'
+        on_delete=models.SET_NULL,
+        related_name='expenses',
+        blank=True,
+        null=True
     )
 
     projects = models.ManyToManyField(

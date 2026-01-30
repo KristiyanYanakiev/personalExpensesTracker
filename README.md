@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a **sandbox for learning Django**. It is **not intended as a production app**, but rather a playground to experiment with different Django concepts, including models, views, forms, **template inheritance**, and more.
+This project is a **sandbox for learning Django**. It is **not intended as a production app**, but rather a playground to experiment with different Django concepts, including models, views, forms, template inheritance, and more.
 
 ## Features Practiced
 
